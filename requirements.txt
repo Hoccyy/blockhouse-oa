@@ -1,0 +1,5 @@
+python
+pip
+django
+django-cors-headers
+django djangorestframework

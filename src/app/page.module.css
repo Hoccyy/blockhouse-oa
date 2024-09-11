@@ -25,6 +25,7 @@
     --button-primary-hover: #ccc;
     --button-secondary-hover: #1a1a1a;
   }
+
 }
 
 .main {
@@ -56,53 +57,40 @@
   font-weight: 600;
 }
 
-.ctas {
-  display: flex;
-  gap: 16px;
+.logo {
+  text-align: center;
 }
 
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: none;
-  border: 1px solid transparent;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
-  cursor: pointer;
+
+.footerTitle {
+  text-align: center;
+  color: rgba(211, 211, 211, 0.365);
+  margin-top: 13px;
+}
+
+.lightmodeContainer {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
-}
-
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
-}
-
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 180px;
-}
-
-.footer {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
-}
-
-.footer a {
-  display: flex;
   align-items: center;
-  gap: 8px;
+  text-align: center;
+  opacity: 0;
+  animation: loadInAnim 0.7s 0.26s ease-in forwards;
 }
 
-.footer img {
-  flex-shrink: 0;
+.darkmodeContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  animation: loadInAnim 0.7s 0.26s ease-in forwards;
+}
+
+.logoImg {
+  height: 40px;
+  width: 40px;
 }
 
 /* Enable hover only on non-touch devices */
@@ -136,30 +124,29 @@ a.secondary {
   .main ol {
     text-align: center;
   }
+}
 
-  .ctas {
-    flex-direction: column;
+
+@media (prefers-color-scheme: light) {
+  .footerTitle {
+    color: darkgray;
   }
 
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+  .darkmodeContainer {
+    display: none;
   }
 }
 
 @media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
+  .lightmodeContainer {
+    display: none;
+    opacity: 0;
+  }
+}
+
+/* Anims List */
+@keyframes loadInAnim {
+  100% {
+    opacity: 1;
   }
 }

@@ -1,0 +1,156 @@
+.container {
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: loadInAnim 0.7s 0.26s ease-in forwards;
+}
+
+.loadingText {
+    color: black;
+    animation: loadingTextAnim 0.9s ease-in infinite;
+    text-align: center;
+    font-weight: 600;
+    font-size: 30px;
+    margin-top: 260px;
+    font-family: monospace;
+}
+
+.Section {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 8.13px;
+    height: 500px;
+    max-height: 500px;
+    min-width: 313px;
+    max-width: 313px;
+    border-radius: 7px;
+    padding: 5px;
+    flex-direction: column;
+}
+
+.Section:hover {
+    animation: focusAnim 0.3s ease-in forwards;
+}
+
+.chartSection {
+    height: 60%;
+    border-radius: 3px;
+    padding: 3px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    width: 100%;
+}
+
+.chartTitle {
+    color: black;
+    text-align: left;
+    margin: 26px 0 0 5px;
+    font-weight: 600;
+}
+
+.chartSubtext {
+    color: gray;
+    font-size: 12px;
+    margin-left: 5px;
+    text-align: left;
+}
+
+/* Mobile Screen sizes */
+@media (max-width: 600px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Section {
+        min-width: 1px;
+        max-width: 100%;
+        width: 380px;
+    }
+}
+
+
+/* Small monitor sizes */
+@media (max-width: 1200px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Section {
+        min-width: 1px;
+        max-width: 100%;
+        width: 500px;
+    }
+}
+
+.lastUpdate {
+    margin-top: 39px;
+    padding-top: 13px;
+    font-size: 13px;
+    text-align: left;
+    color: lightgrey;
+    border-top: .3px solid rgba(211, 211, 211, 0.508);
+}
+
+/* Large monitor sizes */
+@media (min-width: 3000px) {
+    .Section {
+        max-width: none;
+        max-height: none;
+        width: 900px;
+        height: 1000px;
+    }
+
+    .chartTitle {
+        font-size: 50px;
+    }
+
+    .chartSubtext {
+        font-size: 40px;
+    }
+}
+
+/* Anims List */
+@keyframes focusAnim {
+    0% {}
+    100% {
+        transform: scale(1.01);
+    }
+}
+
+@keyframes loadingTextAnim {
+    0% {
+        transform: scale(1);
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: scale(1.26);
+        color: rgb(57, 145, 175);
+        transform: rotate(1.3deg);
+    }
+    50% {
+        transform: scale(1.26);
+        color: rgb(168, 70, 70);
+        transform: rotate(-1.3deg);
+    }
+    100% {
+        transform: scale(1);
+        color: black;
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes loadInAnim {
+    100% {
+      opacity: 1;
+    }
+  }

@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Web Development Coding Test: Next.js Application with Django API Integration 
+Dashboard project made with Django for the backend and Next.Js for frontend.
 
-## Getting Started
+---
+# Requirements
+- python
+- pip
+- django
+- django-cors-headers
+- django djangorestframework
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Getting Started
+##### 1. Run setup.sh if on Mac/Linux or setup.bat if on Windows
+###### Mac/Linux
+```
+#!/bin/bash
+npm install
+python3 -m venv .venv
+source .venv/bin/activate
+cd backend
+
+pip install django
+pip install django djangorestframework
+pip install django-cors-headers
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+###### Windows
+```
+@echo off
+npm install
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+python -m venv .venv
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+call .venv\Scripts\activate
 
-## Learn More
+cd backend
 
-To learn more about Next.js, take a look at the following resources:
+pip install django
+pip install djangorestframework
+pip install django-cors-headers
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+##### 2. Run start.sh if on Mac/Linux or start.bat if on Windows
+###### Mac/Linux
+```
+#!/bin/bash
+source .venv/bin/activate
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+python3 backend/manage.py runserver &
+PYTHON_PID=$!
 
-## Deploy on Vercel
+npm run dev
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+wait $PYTHON_PID
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+###### Windows
+
+```
+@echo off
+call .venv\Scripts\activate
+
+start "" /b python backend\manage.py runserver
+set "PYTHON_PID=%ERRORLEVEL%"
+
+npm run dev
+
+:waitloop
+tasklist /FI "PID eq %PYTHON_PID%" 2>NUL | find /I /N "python.exe">NUL
+if "%ERRORLEVEL%"=="0" (
+    timeout /T 5 /NOBREAK >NUL
+    goto :waitloop
+)
+
+```
+### Usage
+After setting up the requirements and starting both servers, open the link in your web browser on [local host](http://localhost:3000) port 3000 (http://localhost:3000).
