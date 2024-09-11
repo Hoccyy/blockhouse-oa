@@ -12,7 +12,12 @@ Dashboard project made with Django for the backend and Next.Js for frontend.
 ---
 
 ### Getting Started
-##### 1. Run setup.sh if on Mac/Linux or setup.bat if on Windows
+##### 1. Clone the repo and enter it from the CLI
+```
+git clone https://github.com/Hoccyy/blockhouse-oa.git
+cd blockhouse-oa
+```
+##### 2. Run setup.sh if on Mac/Linux or setup.bat if on Windows
 ###### Mac/Linux
 ```
 #!/bin/bash
@@ -42,7 +47,7 @@ pip install djangorestframework
 pip install django-cors-headers
 ```
 
-##### 2. Run start.sh if on Mac/Linux or start.bat if on Windows
+##### 3. Run start.sh if on Mac/Linux or start.bat if on Windows
 ###### Mac/Linux
 ```
 #!/bin/bash
