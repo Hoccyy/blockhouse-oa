@@ -8,6 +8,8 @@ Dashboard project made with Django for the backend and Next.Js for frontend.
 - django
 - django-cors-headers
 - django djangorestframework
+- chartjs
+- TypeScript
 
 ---
 
